@@ -211,7 +211,7 @@ function overwriteRules(params) {
 		apple: {
 			type: "http",
 			behavior: "classical",
-			url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/apple.txt",
+			url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Apple/Apple_Classical.yaml",
 			path: "./ruleset/apple.yaml",
 			interval: 86400,
 		},
