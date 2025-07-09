@@ -132,7 +132,7 @@ const customRules = [
 	"DOMAIN-SUFFIX,cursor-cdn.com,Cursor",
 	"DOMAIN-SUFFIX,cursorapi.com,Cursor",
 	"DOMAIN-SUFFIX,augmentcode.com,Augment",
-    "IP-CIDR,183.230.113.152/32,REJECT",
+   	"IP-CIDR,183.230.113.152/32,REJECT",
 	"IP-CIDR,1.12.12.12/32,代理模式"
 ];
 
@@ -148,7 +148,7 @@ function overwriteRules(params) {
 		"RULE-SET,youtube,YouTube",
 		"RULE-SET,google,Google",
 		"RULE-SET,googleFCM,Google",
-		//"RULE-SET,onedrive,OneDrive",
+		"RULE-SET,onedrive,OneDrive",
 		"RULE-SET,microsoft,Microsoft",
 		"GEOIP,CN,DIRECT,no-resolve",
 		"GEOIP,LAN,DIRECT,no-resolve",
