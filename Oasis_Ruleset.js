@@ -148,7 +148,7 @@ function overwriteRules(params) {
 		"RULE-SET,youtube,YouTube",
 		"RULE-SET,google,Google",
 		"RULE-SET,googleFCM,Google",
-		"RULE-SET,onedrive,OneDrive",
+		//"RULE-SET,onedrive,OneDrive",
 		"RULE-SET,microsoft,Microsoft",
 		"GEOIP,CN,DIRECT,no-resolve",
 		"GEOIP,LAN,DIRECT,no-resolve",
