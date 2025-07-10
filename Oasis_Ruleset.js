@@ -115,7 +115,7 @@ function getIconForGroup(groupName) {
 	case "Cursor":
 		return "https://fastly.jsdelivr.net/gh/yusnake/Rules@main/icons8-cursor-ai-240.svg";
 	case "Augment":
-		return "https://registry.npmmirror.com/@lobehub/icons-static-png/1.53.0/files/dark/cursor.png";
+		return "https://fastly.jsdelivr.net/gh/yusnake/Rules@main/augment.png";
 	case "漏网之鱼":
 		return "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/fish.svg";
 	case "广告拦截":
