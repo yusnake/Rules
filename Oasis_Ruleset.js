@@ -419,7 +419,7 @@ function overwriteProxyGroups(params) {
   const autoProxyGroupRegexs = countryRegions
     .filter(region => availableCountryCodes.has(region.code))
     .map(region => ({
-      name: `${region.code} - 自动选择`,
+      name: `${codeToFlag(region.code)} ${region.code} - 自动选择`,
       regex: region.regex,
     }));
 
@@ -438,7 +438,7 @@ function overwriteProxyGroups(params) {
   const manualProxyGroupsConfig = countryRegions
     .filter(region => availableCountryCodes.has(region.code))
     .map(region => ({
-      name: `${region.code} - 手动选择`,
+      name: `${codeToFlag(region.code)} ${region.code} - 手动选择`,
       type: "select",
       proxies: getManualProxiesByRegex(params, region.regex),
       icon: region.icon,
@@ -544,8 +544,8 @@ function overwriteProxyGroups(params) {
         ...countryRegions
           .filter(region => availableCountryCodes.has(region.code))
           .flatMap(region => [
-            `${region.code} - 自动选择 - ${groupName}`, 
-            `${region.code} - 手动选择`,
+            `${codeToFlag(region.code)} ${region.code} - 自动选择 - ${groupName}`, 
+            `${codeToFlag(region.code)} ${region.code} - 手动选择`,
           ]),
         //otherAutoProxyGroup ? `${otherAutoProxyGroup.name} - ${groupName}` : null,
       ].filter(Boolean),
