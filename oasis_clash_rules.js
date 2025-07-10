@@ -268,7 +268,7 @@ function main(params) {
 		case "ChatGPT":
 			return "https://chat.openai.com/";
 		case "Claude":
-			return "https://www.anthropic.com/";
+			return "https://www.claude.ai/";
 		case "Apple":
 			return "https://www.apple.com/";
 		case "iCloud":
@@ -286,7 +286,7 @@ function main(params) {
 		case "Cursor":
 			return "https://api2.cursor.sh/";
 		case "Augment":
-			return "https://www.augmentcode.com/";
+			return "https://augment.caicode.org/";
 		default:
 			return "http://www.gstatic.com/generate_204";
 		}
