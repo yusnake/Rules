@@ -446,7 +446,7 @@ function getIconForGroup(groupName) {
   case "Claude":
     return "https://fastly.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/anthropic.png";
   case "Github":
-      return "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/github.svg";
+    return "https://raw.githubusercontent.com/yusnake/Rules/refs/heads/main/icons8-github.svg";
   case "Apple":
     return "https://fastly.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/apple.png";
   case "Spotify":
