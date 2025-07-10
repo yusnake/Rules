@@ -104,6 +104,7 @@ function main(config) {
 		"RULE-SET,telegramcidr,Telegram,no-resolve",
 		"RULE-SET,openai,ChatGPT",
 		"RULE-SET,claude,Claude",
+		"RULE-SET,github,Github",
 		"RULE-SET,twitter,X.com",
 		//"RULE-SET,spotify,Spotify",
 		"RULE-SET,youtube,YouTube",
@@ -218,6 +219,13 @@ function main(config) {
 			behavior: "classical",
 			url: "https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/master/rule/Clash/Claude/Claude.yaml",
 			path: "./ruleset/custom/Claude.yaml",
+			interval: 86400,
+		},
+    github: {
+			type: "http",
+			behavior: "classical",
+			url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml",
+			path: "./ruleset/custom/GitHub.yaml",
 			interval: 86400,
 		},
 		spotify: {
@@ -392,6 +400,8 @@ function getTestUrlForGroup(groupName) {
     return "https://web.telegram.org/";
   case "X.com":
     return "https://x.com/";
+  case "Github":
+    return "https://github.com/";
   case "ChatGPT":
     return "https://chat.openai.com/";
   case "Claude":
@@ -435,6 +445,8 @@ function getIconForGroup(groupName) {
     return "https://fastly.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/openai.png";
   case "Claude":
     return "https://fastly.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/anthropic.png";
+  case "Github":
+      return "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/github.svg";
   case "Apple":
     return "https://fastly.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/apple.png";
   case "Spotify":
@@ -554,7 +566,7 @@ function overwriteProxyGroups(params) {
       hidden: true,
     };
   }
-  const app_groups = ["Telegram",  "YouTube",  "ChatGPT",  "Claude",  "Google",  "X.com",  "Microsoft",  "OneDrive",  "Apple",  "Cursor",  "Augment",];
+  const app_groups = ["Telegram",  "YouTube",  "ChatGPT",  "Claude",  "Google",  "X.com", "Github", "Microsoft",  "OneDrive",  "Apple",  "Cursor",  "Augment",];
   
   const proxyName = "Proxy";
 
