@@ -93,6 +93,7 @@ function main(config) {
     "DOMAIN-SUFFIX,cursor-cdn.com,Cursor",
     "DOMAIN-SUFFIX,cursorapi.com,Cursor",
     "DOMAIN-SUFFIX,augmentcode.com,Augment",
+    "DOMAIN-SUFFIX,augment.caicode.org,Augment",
     "IP-CIDR,183.230.113.152/32,REJECT",
     "IP-CIDR,1.12.12.12/32,Proxy"
   ];
@@ -221,7 +222,7 @@ function main(config) {
 			path: "./ruleset/custom/Claude.yaml",
 			interval: 86400,
 		},
-    github: {
+    		github: {
 			type: "http",
 			behavior: "classical",
 			url: "https://cdn.jsdelivr.net/gh/blackmatrix7/ios_rule_script@master/rule/Clash/GitHub/GitHub.yaml",
@@ -446,7 +447,7 @@ function getIconForGroup(groupName) {
   case "Claude":
     return "https://fastly.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/anthropic.png";
   case "Github":
-    return "https://raw.githubusercontent.com/yusnake/Rules/refs/heads/main/icons8-github.svg";
+    return "https://fastly.jsdelivr.net/gh/yusnake/Rules@main/icons8-github-192.svg";
   case "Apple":
     return "https://fastly.jsdelivr.net/gh/shindgewongxj/WHATSINStash@master/icon/apple.png";
   case "Spotify":
