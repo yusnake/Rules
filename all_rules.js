@@ -85,613 +85,19 @@ function main(config) {
 
   overwriteProxyGroups(config);
 
-  // 覆盖策略组
- /*  config["proxy-groups"] = [
-    {
-      ...groupBaseOption,
-      "name": "Final",
-      "type": "select",
-      "proxies": ["Proxy", "DIRECT"],
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "Proxy",
-      "type": "select",
-      "proxies": ["中国", "香港", "台湾", "日本", "韩国", "加拿大", "泰国", "法国", "俄罗斯", "新加坡", "美国", "德国", "越南", "其他", "DIRECT"],
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Rocket.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "YouTube",
-      "type": "select",
-      "proxies": ["中国", "香港", "台湾", "日本", "韩国", "加拿大", "泰国", "法国", "俄罗斯", "新加坡", "美国", "德国", "越南", "其他"],
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "TikTok",
-      "type": "select",
-      "proxies": ["中国", "香港", "台湾", "日本", "韩国", "加拿大", "泰国", "法国", "俄罗斯", "新加坡", "美国", "德国", "越南", "其他"],
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/TikTok.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "bilibili",
-      "type": "select",
-      "proxies": ["DIRECT", "中国", "香港", "台湾"],
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/bilibili_3.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "Telegram",
-      "type": "select",
-      "proxies": ["中国", "香港", "台湾", "日本", "韩国", "加拿大", "泰国", "法国", "俄罗斯", "新加坡", "美国", "德国", "越南", "其他"],
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram_X.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "X",
-      "type": "select",
-      "proxies": ["中国", "香港", "台湾", "日本", "韩国", "加拿大", "泰国", "法国", "俄罗斯", "新加坡", "美国", "德国", "越南", "其他"],
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/X.png"
-    },
-    // 地区分组
-    {
-      ...groupBaseOption,
-      "name": "中国",
-      "type": "select",
-      "proxies": ["CN-Auto", "CN-FallBack", "CN-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇨🇳|中国|(\b(CN|China)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "CN-Auto",
-      "type": "url-test",
-      "tolerance": 50,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇨🇳|中国|(\b(CN|China)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "CN-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇨🇳|中国|(\b(CN|China)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "CN-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇨🇳||中国|(\b(CN|China)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/China.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "香港",
-      "type": "select",
-      "proxies": ["HK-Auto", "HK-FallBack", "HK-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇭🇰|香港|(\b(HK|Hong)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "HK-Auto",
-      "type": "url-test",
-      "tolerance": 50,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇭🇰|香港|(\b(HK|Hong)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "HK-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇭🇰|香港|(\b(HK|Hong)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "HK-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇭🇰|香港|(\b(HK|Hong)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "台湾",
-      "type": "select",
-      "proxies": ["TW-Auto", "TW-FallBack", "TW-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇨🇳|🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "TW-Auto",
-      "type": "url-test",
-      "tolerance": 50,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇨🇳|🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "TW-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇨🇳|🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "TW-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇨🇳|🇹🇼|台湾|(\b(TW|Tai|Taiwan)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "日本",
-      "type": "select",
-      "proxies": ["JP-Auto", "JP-FallBack", "JP-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "JP-Auto",
-      "type": "url-test",
-      "tolerance": 50,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "JP-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "JP-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇯🇵|日本|东京|(\b(JP|Japan)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "韩国",
-      "type": "select",
-      "proxies": ["KR-Auto", "KR-FallBack", "KR-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇰🇷|韩国|(\b(KR|Korea)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "KR-Auto",
-      "type": "url-test",
-      "tolerance": 30,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇰🇷|韩国|(\b(KR|Korea)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "KR-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇰🇷|韩国|(\b(KR|Korea)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "KR-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇰🇷|韩国|(\b(KR|Korea)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "加拿大",
-      "type": "select",
-      "proxies": ["CAN-Auto", "CAN-FallBack", "CAN-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇨🇦|加拿大|(\b(CAN|Canada)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Canada.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "CAN-Auto",
-      "type": "url-test",
-      "tolerance": 30,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇨🇦|加拿大|(\b(CAN|Canada)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Canada.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "CAN-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇨🇦|加拿大|(\b(CAN|Canada)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Canada.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "CAN-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇨🇦|加拿大|(\b(CAN|Canada)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Canada.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "泰国",
-      "type": "select",
-      "proxies": ["TH-Auto", "TH-FallBack", "TH-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇹🇭|泰国|(\b(TH|Thailand)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Thailand.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "TH-Auto",
-      "type": "url-test",
-      "tolerance": 50,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇹🇭|太国|(\b(TH|Thailand)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Thailand.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "TH-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇹🇭|泰国|(\b(TH|Thailand)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Thailand.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "TH-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇹🇭|泰国|(\b(TH|Thailand)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Thailand.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "法国",
-      "type": "select",
-      "proxies": ["FRA-Auto", "FRA-FallBack", "FRA-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇫🇷|法国|(\b(FRA|France)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "FRA-Auto",
-      "type": "url-test",
-      "tolerance": 50,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇫🇷|法国|(\b(FRA|France)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "FRA-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇫🇷|法国|(\b(FRA|France)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "FRA-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇫🇷|法国|(\b(FRA|France)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/France.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "俄罗斯",
-      "type": "select",
-      "proxies": ["RU-Auto", "RU-FallBack", "RU-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇷🇺|俄罗斯|(\b(RU|Russia)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Russia.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "RU-Auto",
-      "type": "url-test",
-      "tolerance": 50,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇷🇺|俄罗斯|(\b(RU|Russia)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Russia.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "RU-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇷🇺|俄罗斯|(\b(RU|Russia)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Russia.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "RU-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇷🇺|俄罗斯|(\b(RU|Russia)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Russia.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "新加坡",
-      "type": "select",
-      "proxies": ["SG-Auto", "SG-FallBack", "SG-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "SG-Auto",
-      "type": "url-test",
-      "tolerance": 50,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "SG-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "SG-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇸🇬|新加坡|狮|(\b(SG|Singapore)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "美国",
-      "type": "select",
-      "proxies": ["US-Auto", "US-FallBack", "US-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇺🇸|美国|洛杉矶|圣何塞|(\b(US|United States)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "US-Auto",
-      "type": "url-test",
-      "tolerance": 50,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇺🇸|美国|洛杉矶|圣何塞|(\b(US|United States)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "US-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇺🇸|美国|洛杉矶|圣何塞|(\b(US|United States)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "US-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇺🇸|美国|洛杉矶|圣何塞|(\b(US|United States)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "德国",
-      "type": "select",
-      "proxies": ["DE-Auto", "DE-FallBack", "DE-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇩🇪|德国|(\b(DE|Germany)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "DE-Auto",
-      "type": "url-test",
-      "tolerance": 50,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇩🇪|德国|(\b(DE|Germany)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "DE-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇩🇪|德国|(\b(DE|Germany)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "DE-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇩🇪|德国|(\b(DE|Germany)\b)",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Germany.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "越南",
-      "type": "select",
-      "proxies": ["VN-Auto", "VN-FallBack", "VN-LoadBalance"],
-      "include-all": true,
-      "filter": "(?i)🇻🇳|越南|(\b(VN|Vietnam)\b)",
-      "icon": "https://img1.baidu.com/it/u=3283399533,2551674434&fm=253&fmt=auto&app=138&f=GIF?w=749&h=500"
-    },
-    {
-      ...groupBaseOption,
-      "name": "VN-Auto",
-      "type": "url-test",
-      "tolerance": 50,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇻🇳|越南|(\b(VN|Vietnam)\b)",
-      "icon": "https://img1.baidu.com/it/u=3283399533,2551674434&fm=253&fmt=auto&app=138&f=GIF?w=749&h=500"
-    },
-    {
-      ...groupBaseOption,
-      "name": "VN-FallBack",
-      "type": "fallback",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇻🇳|越南|(\b(VN|Vietnam)\b)",
-      "icon": "https://img1.baidu.com/it/u=3283399533,2551674434&fm=253&fmt=auto&app=138&f=GIF?w=749&h=500"
-    },
-    {
-      ...groupBaseOption,
-      "name": "VN-LoadBalance",
-      "type": "load-balance",
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?i)🇻🇳|越南|(\b(VN|Vietnam)\b)",
-      "icon": "https://img1.baidu.com/it/u=3283399533,2551674434&fm=253&fmt=auto&app=138&f=GIF?w=749&h=500"
-    },
-    {
-      ...groupBaseOption,
-      "name": "其他",
-      "type": "select",
-      "proxies": ["All-Auto"],
-      "include-all": true,
-      "filter": "(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|Traffic|Expire|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png"
-    },
-    {
-      ...groupBaseOption,
-      "name": "All-Auto",
-      "type": "url-test",
-      "tolerance": 50,
-      "lazy": true,
-      "include-all": true,
-      "hidden": true,
-      "filter": "(?=.*(.))(?!.*((?i)群|邀请|返利|循环|官网|客服|网站|网址|获取|订阅|流量|到期|机场|下次|版本|官址|备用|过期|已用|联系|邮箱|工单|贩卖|通知|倒卖|防止|国内|地址|频道|无法|说明|使用|提示|特别|访问|支持|教程|关注|更新|作者|加入|(\b(USE|USED|TOTAL|Traffic|Expire|EMAIL|Panel|Channel|Author)\b|(\d{4}-\d{2}-\d{2}|\d+G)))).*$",
-      "icon": "https://gh-proxy.com/https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Airport.png"
-    }
-  ];  */
-  
-  // 覆盖策略组
+  // 规则组
   const customRules = [
     //"DOMAIN-SUFFIX,linux.do,代理模式",
-    "DOMAIN-SUFFIX,cursor.com,Proxy",
-    "DOMAIN-SUFFIX,cursor.sh,Proxy",
-    "DOMAIN-SUFFIX,cursor-cdn.com,Proxy",
-    "DOMAIN-SUFFIX,cursorapi.com,Proxy",
-    "DOMAIN-SUFFIX,augmentcode.com,Proxy",
+    "DOMAIN-SUFFIX,cursor.com,Cursor",
+    "DOMAIN-SUFFIX,cursor.sh,Cursor",
+    "DOMAIN-SUFFIX,cursor-cdn.com,Cursor",
+    "DOMAIN-SUFFIX,cursorapi.com,Cursor",
+    "DOMAIN-SUFFIX,augmentcode.com,Augment",
     "IP-CIDR,183.230.113.152/32,REJECT",
     "IP-CIDR,1.12.12.12/32,Proxy"
   ];
 
-  
+   // 规则组
   const rules = [
 		...customRules,
 		//"RULE-SET,steam,Steam",
@@ -728,6 +134,7 @@ function main(config) {
 		"MATCH,漏网之鱼",
 	];
 
+  // 覆盖规则提供者
 	const ruleProviders = {
 		steam: {
 			type: "http",
@@ -930,365 +337,49 @@ function main(config) {
 	config["rule-providers"] = ruleProviders;
 	config["rules"] = rules;
 
-
-
-
-  
-
-	
-
-  
-  // 覆盖规则集
-/*   config["rule-providers"] = {
-    "private-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs",
-      "path": "./rules/private-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "private-ip": {
-      ...ruleProviderCommon,
-      "behavior": "ipcidr",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/private.mrs",
-      "path": "./rules/private-ip.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "ai-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs",
-      "path": "./rules/ai-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "youtube-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs",
-      "path": "./rules/youtube-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "netflix-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/netflix.mrs",
-      "path": "./rules/netflix-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "netflix-ip": {
-      ...ruleProviderCommon,
-      "behavior": "ipcidr",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/netflix.mrs",
-      "path": "./rules/netflix-ip.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "disney-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/disney.mrs",
-      "path": "./rules/disney-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "emby-classical": {
-      ...ruleProviderCommon,
-      "behavior": "classical",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Coldvvater/Mononoke/master/Clash/Rules/Emby.list",
-      "path": "./rules/emby-classical.list",
-      "type": "http",
-      "format": "text",
-      "interval": 86400
-    },
-    "tiktok-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs",
-      "path": "./rules/tiktok-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "bahamut-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bahamut.mrs",
-      "path": "./rules/bahamut-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "biliintl-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/biliintl.mrs",
-      "path": "./rules/biliintl-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "bilibili-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.mrs",
-      "path": "./bilibili-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "bilibili-ip": {
-      ...ruleProviderCommon,
-      "behavior": "ipcidr",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/bilibili.mrs",
-      "path": "./bilibili-ip.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "spotify-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/spotify.mrs",
-      "path": "./rules/spotify-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "proxymedia-classical": {
-      ...ruleProviderCommon,
-      "behavior": "classical",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Coldvvater/Mononoke/master/Clash/Rules/ProxyMedia.list",
-      "path": "./rules/proxymedia-classical.list",
-      "type": "http",
-      "format": "text",
-      "interval": 86400
-    },
-    "wechat-classical": {
-      ...ruleProviderCommon,
-      "behavior": "classical",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Coldvvater/Mononoke/master/Clash/Rules/WeChat.list",
-      "path": "./rules/wechat-classical.list",
-      "type": "http",
-      "format": "text",
-      "interval": 86400
-    },
-    "telegram-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs",
-      "path": "./rules/telegram-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "telegram-ip": {
-      ...ruleProviderCommon,
-      "behavior": "ipcidr",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs",
-      "path": "./rules/telegram-ip.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "github-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs",
-      "path": "./rules/github-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "twitter-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs",
-      "path": "./rules/twitter-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "twitter-ip": {
-      ...ruleProviderCommon,
-      "behavior": "ipcidr",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/twitter.mrs",
-      "path": "./rules/twitter-ip.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "apple-classical": {
-      ...ruleProviderCommon,
-      "behavior": "classical",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/Coldvvater/Mononoke/master/Clash/Rules/AppleProxyService.list",
-      "path": "./rules/apple-classical.list",
-      "type": "http",
-      "format": "text",
-      "interval": 86400
-    },
-    "apple-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs",
-      "path": "./rules/apple-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "apple-ip": {
-      ...ruleProviderCommon,
-      "behavior": "ipcidr",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo-lite/geoip/apple.mrs",
-      "path": "./rules/apple-ip.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "google-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs",
-      "path": "./rules/google-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "google-ip": {
-      ...ruleProviderCommon,
-      "behavior": "ipcidr",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs",
-      "path": "./rules/google-ip.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "microsoft-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs",
-      "path": "./rules/microsoft-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "games-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-games.mrs",
-      "path": "./rules/games-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "cn-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs",
-      "path": "./rules/cn-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    },
-    "proxy-domain": {
-      ...ruleProviderCommon,
-      "behavior": "domain",
-      "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs",
-      "path": "./rules/proxy-domain.mrs",
-      "type": "http",
-      "format": "mrs",
-      "interval": 86400
-    }
-  }; */
-
-  // 覆盖规则
-/*   config["rules"] = [
-    "DOMAIN,clash.razord.top,DIRECT",
-    "DOMAIN,yacd.metacubex.one,DIRECT",
-    "DOMAIN,yacd.haishan.me,DIRECT",
-    "DOMAIN,d.metacubex.one,DIRECT",
-    "DOMAIN,m.youtube.com,YouTube",
-    "DOMAIN,board.zash.run.place,DIRECT",
-    "RULE-SET,private-domain,DIRECT",
-    "RULE-SET,youtube-domain,YouTube",
-    "RULE-SET,tiktok-domain,TikTok",
-    "RULE-SET,bahamut-domain,台湾",
-    "RULE-SET,bilibili-domain,bilibili",
-    "RULE-SET,wechat-classical,DIRECT",
-    "PROCESS-NAME,com.ss.android.ugc.aweme,DIRECT",
-    "PROCESS-NAME,com.radolyn.ayugram,Telegram",
-    "PROCESS-NAME,xyz.nextalone.nagram,Telegram",
-    "PROCESS-NAME,tv.danmaku.bili,bilibili",
-    "PROCESS-NAME,com.baidu.input,DIRECT",
-    "PROCESS-NAME,com.tencent.mm,DIRECT",
-    "RULE-SET,telegram-domain,Telegram",
-    "RULE-SET,github-domain,Proxy",
-    "RULE-SET,twitter-domain,X",
-    "RULE-SET,apple-classical,美国",
-    "RULE-SET,proxy-domain,Proxy",
-    "RULE-SET,telegram-ip,Telegram",
-    "RULE-SET,twitter-ip,X",
-    "RULE-SET,cn-domain,DIRECT",
-    "RULE-SET,bilibili-ip,bilibili",
-    "RULE-SET,private-ip,DIRECT",
-    "GEOIP,cn,DIRECT",
-    "MATCH,Final"
-  ]; */
-
   // 返回修改后的配置
   return config;
 }
 
 const countryRegions = [
-  { code: "HK", name: "香港", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/hk.svg", regex: /(香港|HK|Hong Kong|🇭🇰)(?!.*(中国|CN|China|PRC|🇨🇳))/i },
-  { code: "TW", name: "台湾", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/tw.svg", regex: /(台湾|TW|Taiwan|🇹🇼)(?!.*(中国|CN|China|PRC|🇨🇳))(?!.*Networks)/i },  
-  { code: "SG", name: "新加坡", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/sg.svg", regex: /(新加坡|狮城|SG|Singapore|🇸🇬)/i },
-  { code: "JP", name: "日本", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/jp.svg", regex: /(日本|JP|Japan|东京|🇯🇵)/i },
-  { code: "US", name: "美国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/us.svg", regex: /^(?!.*(Plus|plus|custom)).*(美国|洛杉矶|US|USA|United States|America|🇺🇸)/i },
-  { code: "CN", name: "中国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/cn.svg", regex: /^(?!.*(美国|洛杉矶|US|USA|新加坡|狮城|SG|日本|JP|韩国|KR|台湾|HK|香港|TW|CN_d)).*(中国|CN|China|PRC|🇨🇳)/i },
-  { code: "DE", name: "德国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/de.svg", regex: /^(?!.*shadowsocks).*(德国|DE|Germany|🇩🇪)/i },
-  { code: "KR", name: "韩国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/kr.svg", regex: /(韩国|首尔|KR|Korea|South Korea|🇰🇷)/i },
-  { code: "UK", name: "英国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/gb.svg", regex: /(英国|UK|United Kingdom|Britain|Great Britain|🇬🇧)/i },
-  { code: "CA", name: "加拿大", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ca.svg", regex: /^(?!.*(Anycast|Datacamp)).*(加拿大|CA|Canada|🇨🇦)/i },
-  { code: "AU", name: "澳大利亚", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/au.svg", regex: /(澳大利亚|AU|Australia|🇦🇺)/i },
-  { code: "FR", name: "法国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/fr.svg", regex: /^(?!.*(free|Frontier|Frankfurt)).*(法国|FR|France|🇫🇷)/i },
-  { code: "NL", name: "荷兰", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/nl.svg", regex: /^(?!.*(only|online|MNL)).*(荷兰|NL|Netherlands|🇳🇱)/i },
-  { code: "RU", name: "俄罗斯", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ru.svg", regex: /(俄罗斯|RU|Russia|🇷🇺)/i },
-  { code: "IN", name: "印度", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/in.svg", regex: /^(?!.*(美国|洛杉矶|US|USA|新加坡|狮城|SG|日本|JP|韩国|KR|台湾|HK|香港|TW|CN_d|Singapore|Argentina|Intel|Inc|ing|link|business|hinet|internet|印度尼西亚|main)).*(印度|IN|India|🇮🇳)/i }, 
-  { code: "BR", name: "巴西", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/br.svg", regex: /(巴西|BR|Brazil|🇧🇷)/i },
-  { code: "IT", name: "意大利", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/it.svg", regex: /^(?!.*(mitce|reality|digital|leiting|limited|it7|territories)).*(意大利|IT|Italy|🇮🇹)/i },
-  { code: "CH", name: "瑞士", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ch.svg", regex: /^(?!.*(incheon|chunghwa|tech|psychz|channel|seychelles|chuncheon)).*(瑞士|CH|Switzerland|🇨🇭)/i },
-  { code: "SE", name: "瑞典", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/se.svg", regex: /^(?!.*(sel2|sea1|server|selfhost|neonpulse|base|seoul|seychelles)).*(瑞典|SE|Sweden|🇸🇪)/i },
-  { code: "NO", name: "挪威", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/no.svg", regex: /^(?!.*(none|node|annoy|cf_no1|technolog)).*(挪威|NO|Norway|🇳🇴)/i },
-  { code: "MY", name: "马来西亚", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/my.svg", regex: /^(?!.*(myshadow)).*(马来西亚|MY|Malaysia|🇲🇾)/i },
-  { code: "VN", name: "越南", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/vn.svg", regex: /(越南|VN|Vietnam|🇻🇳)/i },
-  { code: "PH", name: "菲律宾", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ph.svg", regex: /^(?!.*(phoenix|phx)).*(菲律宾|PH|Philippines|🇵🇭)/i },
-  { code: "TH", name: "泰国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/th.svg", regex: /^(?!.*(GTHost|pathx)).*(泰国|TH|Thailand|🇹🇭)/i },
-  { code: "ID", name: "印度尼西亚", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/id.svg", regex: /(印度尼西亚|ID|Indonesia|🇮🇩)/i },
-  { code: "AR", name: "阿根廷", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ar.svg", regex: /^(?!.*(warp|arm|flare|star|shar|par|akihabara|bavaria)).*(阿根廷|AR|Argentina|🇦🇷)/i },
-  { code: "NG", name: "尼日利亚", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ng.svg", regex: /^(?!.*(ong|ing|angeles|ang|ung)).*(尼日利亚|NG|Nigeria|🇳🇬)(?!.*(Hongkong|Singapore))/i },
-  { code: "TR", name: "土耳其", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/tr.svg", regex: /^(?!.*(trojan|str|central)).*(土耳其|TR|Turkey|🇹🇷)/i },
-  { code: "ES", name: "西班牙", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/es.svg", regex: /^(?!.*(vless|angeles|vmess|seychelles|business|ies|reston)).*(西班牙|ES|Spain|🇪🇸)/i },
-  { code: "AT", name: "奥地利", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/at.svg", regex: /^(?!.*(Gate)).*(奥地利|AT|Austria|🇦🇹)/i },
-  { code: "MX", name: "墨西哥", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/mx.svg", regex: /(墨西哥|MX|Mexico|🇲🇽)/i },
-  { code: "EE", name: "爱沙尼亚", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ee.svg", regex: /^(?!.*(free)).*(爱沙尼亚|EE|Estonia|🇪🇪)/i },
-  { code: "PL", name: "波兰", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/pl.svg", regex: /(波兰|PL|Poland|🇵🇱)/i },
-  { code: "IR", name: "伊朗", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ir.svg", regex: /(伊朗|IR|Iran|🇮🇷)/i },
-  { code: "ZA", name: "南非", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/za.svg", regex: /(南非|ZA|South Africa|🇿🇦)/i },
-  { code: "CO", name: "哥伦比亚", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/co.svg", regex: /(哥伦比亚|CO|Colombia|🇨🇴)/i },
-  { code: "SA", name: "沙特阿拉伯", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/sa.svg", regex: /^(?!.*(usa|sakura)).*(沙特阿拉伯|沙特|SA|Saudi Arabia|🇸🇦)/i },
-  { code: "CL", name: "智利", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/cl.svg", regex: /^(?!.*(cloud)).*(智利|CL|Chile|🇨🇱)/i },
+	{ code: "HK", name: "香港", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/hk.svg", regex: /(香港|HK|Hong Kong|🇭🇰)(?!.*(中国|CN|China|PRC|🇨🇳))/i },
+	{ code: "TW", name: "台湾", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/tw.svg", regex: /(台湾|TW|Taiwan|🇹🇼)(?!.*(中国|CN|China|PRC|🇨🇳))(?!.*Networks)/i },  
+	{ code: "SG", name: "新加坡", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/sg.svg", regex: /(新加坡|狮城|SG|Singapore|🇸🇬)/i },
+	{ code: "JP", name: "日本", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/jp.svg", regex: /(日本|JP|Japan|东京|🇯🇵)/i },
+	{ code: "US", name: "美国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/us.svg", regex: /^(?!.*(Plus|plus|custom)).*(美国|洛杉矶|US|USA|United States|America|🇺🇸)/i },
+	{ code: "CN", name: "中国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/cn.svg", regex: /^(?!.*(美国|洛杉矶|US|USA|新加坡|狮城|SG|日本|JP|韩国|KR|台湾|HK|香港|TW|CN_d)).*(中国|CN|China|PRC|🇨🇳)/i },
+	{ code: "DE", name: "德国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/de.svg", regex: /^(?!.*shadowsocks).*(德国|DE|Germany|🇩🇪)/i },
+	{ code: "KR", name: "韩国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/kr.svg", regex: /(韩国|首尔|KR|Korea|South Korea|🇰🇷)/i },
+	{ code: "UK", name: "英国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/gb.svg", regex: /(英国|UK|United Kingdom|Britain|Great Britain|🇬🇧)/i },
+	{ code: "CA", name: "加拿大", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ca.svg", regex: /^(?!.*(Anycast|Datacamp)).*(加拿大|CA|Canada|🇨🇦)/i },
+	{ code: "AU", name: "澳大利亚", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/au.svg", regex: /(澳大利亚|AU|Australia|🇦🇺)/i },
+	{ code: "FR", name: "法国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/fr.svg", regex: /^(?!.*(free|Frontier|Frankfurt)).*(法国|FR|France|🇫🇷)/i },
+	{ code: "NL", name: "荷兰", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/nl.svg", regex: /^(?!.*(only|online|MNL)).*(荷兰|Netherlands|🇳🇱)/i },
+	{ code: "RU", name: "俄罗斯", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ru.svg", regex: /(俄罗斯|RU|Russia|🇷🇺)/i },
+	{ code: "IN", name: "印度", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/in.svg", regex: /^(?!.*(CN_d|Singapore|Argentina|Intel|Inc|ing|link|business|hinet|internet|印度尼西亚|main)).*(印度|India|🇮🇳)/i }, 
+	{ code: "BR", name: "巴西", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/br.svg", regex: /(巴西|BR|Brazil|🇧🇷)/i },
+	{ code: "IT", name: "意大利", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/it.svg", regex: /^(?!.*(mitce|reality|digital|leiting|limited|it7|territories)).*(意大利|IT|Italy|🇮🇹)/i },
+	{ code: "CH", name: "瑞士", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ch.svg", regex: /^(?!.*(incheon|chunghwa|tech|psychz|channel|seychelles|chuncheon)).*(瑞士|Switzerland)/i },
+	{ code: "SE", name: "瑞典", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/se.svg", regex: /^(?!.*(sel2|sea1|server|selfhost|neonpulse|base|seoul|seychelles)).*(瑞典|SE|Sweden|🇸🇪)/i },
+	{ code: "NO", name: "挪威", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/no.svg", regex: /^(?!.*(none|node|annoy|cf_no1|technolog)).*(挪威|Norway|🇳🇴)/i },
+	{ code: "MY", name: "马来西亚", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/my.svg", regex: /^(?!.*(myshadow)).*(马来西亚|MY|Malaysia|🇲🇾)/i },
+	{ code: "VN", name: "越南", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/vn.svg", regex: /(越南|VN|Vietnam|🇻🇳)/i },
+	{ code: "PH", name: "菲律宾", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ph.svg", regex: /^(?!.*(phoenix|phx)).*(菲律宾|PH|Philippines|🇵🇭)/i },
+	{ code: "TH", name: "泰国", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/th.svg", regex: /^(?!.*(GTHost|pathx)).*(泰国|TH|Thailand|🇹🇭)/i },
+	{ code: "ID", name: "印度尼西亚", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/id.svg", regex: /(印度尼西亚|Indonesia|🇮🇩)/i },
+	{ code: "AR", name: "阿根廷", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ar.svg", regex: /^(?!.*(warp|arm|flare|star|shar|par|akihabara|bavaria)).*(阿根廷|Argentina|🇦🇷)/i },
+	{ code: "NG", name: "尼日利亚", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ng.svg", regex: /^(?!.*(ong|ing|angeles|ang|ung)).*(尼日利亚|NG|Nigeria|🇳🇬)(?!.*(Hongkong|Singapore))/i },
+	{ code: "TR", name: "土耳其", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/tr.svg", regex: /^(?!.*(trojan|str|central)).*(土耳其|Turkey|🇹🇷)/i },
+	{ code: "ES", name: "西班牙", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/es.svg", regex: /^(?!.*(vless|angeles|vmess|seychelles|business|ies|reston)).*(西班牙|Spain|🇪🇸)/i },
+	{ code: "AT", name: "奥地利", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/at.svg", regex: /^(?!.*(Gate)).*(奥地利|Austria|🇦🇹)/i },
+	{ code: "MX", name: "墨西哥", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/mx.svg", regex: /(墨西哥|MX|Mexico|🇲🇽)/i },
+	{ code: "EE", name: "爱沙尼亚", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ee.svg", regex: /^(?!.*(free)).*(爱沙尼亚|Estonia|🇪🇪)/i },
+	{ code: "PL", name: "波兰", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/pl.svg", regex: /(波兰|Poland|🇵🇱)/i },
+	{ code: "IR", name: "伊朗", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/ir.svg", regex: /(伊朗|Iran|🇮🇷)/i },
+	{ code: "ZA", name: "南非", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/za.svg", regex: /(南非|ZA|South Africa|🇿🇦)/i },
+	{ code: "CO", name: "哥伦比亚", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/co.svg", regex: /(哥伦比亚|Colombia|🇨🇴)/i },
+	{ code: "SA", name: "沙特阿拉伯", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/sa.svg", regex: /^(?!.*(usa|sakura)).*(沙特阿拉伯|沙特|SA|Saudi Arabia|🇸🇦)/i },
+	{ code: "CL", name: "智利", icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/flags/cl.svg", regex: /^(?!.*(cloud)).*(智利|CL|Chile|🇨🇱)/i },
 ];
 
 function getTestUrlForGroup(groupName) {
@@ -1367,13 +458,14 @@ function getIconForGroup(groupName) {
   }
 };
 
-
+//英国名称特例    
 const CODE_ALIAS = {
   UK: "GB",   // 英国
   // EU: "EU", // 没有 EU 国旗，别映射
   // 你还有其他自定义两字母也可在此列
 };
 
+//缩写转国旗
 function codeToFlag (cc) {
   const code = (CODE_ALIAS[cc] || cc).toUpperCase();
   return [...code]
@@ -1381,6 +473,7 @@ function codeToFlag (cc) {
   .join("");
 };
 
+//重写策略组
 function overwriteProxyGroups(params) {
   const allProxies = params["proxies"].map((e) => e.name);
 
@@ -1407,7 +500,8 @@ function overwriteProxyGroups(params) {
     }
   }
 
-  availableCountryCodes.add("CN");
+  //强制带上CN组
+  //availableCountryCodes.add("CN");
 
   const autoProxyGroupRegexs = countryRegions
     .filter(region => availableCountryCodes.has(region.code))
