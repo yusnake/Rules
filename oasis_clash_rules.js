@@ -10,6 +10,7 @@ function main(params) {
 		"DOMAIN-SUFFIX,cursor-cdn.com,Cursor",
 		"DOMAIN-SUFFIX,cursorapi.com,Cursor",
 		"DOMAIN-SUFFIX,augmentcode.com,Augment",
+		"DOMAIN-SUFFIX,augment.caicode.org,Augment",
 		   "IP-CIDR,183.230.113.152/32,REJECT",
 		"IP-CIDR,1.12.12.12/32,代理模式"
 	];
