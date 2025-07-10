@@ -126,7 +126,7 @@ function getIconForGroup(groupName) {
 }
 
 const customRules = [
-	//"DOMAIN-SUFFIX,linux.do,代理模式",
+	"DOMAIN-SUFFIX,linux.do,代理模式",
 	"DOMAIN-SUFFIX,cursor.com,Cursor",
 	"DOMAIN-SUFFIX,cursor.sh,Cursor",
 	"DOMAIN-SUFFIX,cursor-cdn.com,Cursor",
@@ -419,7 +419,7 @@ function overwriteProxyGroups(params) {
   const autoProxyGroupRegexs = countryRegions
     .filter(region => availableCountryCodes.has(region.code))
     .map(region => ({
-      name: `${codeToFlag(region.code)} ${region.code} - 自动选择`,
+      name: `${region.code} - 自动选择`,
       regex: region.regex,
     }));
 
@@ -438,7 +438,7 @@ function overwriteProxyGroups(params) {
   const manualProxyGroupsConfig = countryRegions
     .filter(region => availableCountryCodes.has(region.code))
     .map(region => ({
-      name: `${codeToFlag(region.code)} ${region.code} - 手动选择`,
+      name: `${region.code} - 手动选择`,
       type: "select",
       proxies: getManualProxiesByRegex(params, region.regex),
       icon: region.icon,
@@ -544,8 +544,8 @@ function overwriteProxyGroups(params) {
         ...countryRegions
           .filter(region => availableCountryCodes.has(region.code))
           .flatMap(region => [
-            `${codeToFlag(region.code)} ${region.code} - 自动选择 - ${groupName}`, 
-            `${codeToFlag(region.code)} ${region.code} - 手动选择`,
+            `${region.code} - 自动选择 - ${groupName}`, 
+            `${region.code} - 手动选择`,
           ]),
         //otherAutoProxyGroup ? `${otherAutoProxyGroup.name} - ${groupName}` : null,
       ].filter(Boolean),
