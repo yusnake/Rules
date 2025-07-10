@@ -113,7 +113,7 @@ function getIconForGroup(groupName) {
 	case "OneDrive":
 		return "https://testingcf.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/OneDrive.png";
 	case "Cursor":
-		return "https://fastly.jsdelivr.net/gh/yusnake/Rules@main/icons8-cursor-ai-480.svg";
+		return "https://fastly.jsdelivr.net/gh/yusnake/Rules@main/icons8-cursor-ai-240.svg";
 	case "Augment":
 		return "https://registry.npmmirror.com/@lobehub/icons-static-png/1.53.0/files/dark/cursor.png";
 	case "漏网之鱼":
