@@ -710,7 +710,7 @@ function overwriteProxyGroups(params) {
   if (otherManualProxyGroup) {
     groups.push(otherManualProxyGroup);
   }
-  //groups.push(...websiteSpecificAutoGroups); 
+  groups.push(...websiteSpecificAutoGroups); 
   params["proxy-groups"] = groups;
 }
 
