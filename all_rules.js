@@ -1,8 +1,8 @@
 // 参考 Verge Rev 示例 Script 配置
 //
-// Clash Verge Rev (Version ≥ 17.2) & Mihomo-Party (Version ≥ 1.5.10)
+// Clash Verge Rev (Version ≥ 17.2) & Mihomo-Party (Version ≥ 1.5.10) @ Flclash (0.08.6)
 //
-// 最后更新时间: 2025-06-12 13:30
+// 最后更新时间: 2025-07-10 13:30
 
 // 规则集通用配置
 const ruleProviderCommon = {
@@ -542,7 +542,7 @@ function overwriteProxyGroups(params) {
       type: "select",
       proxies: getManualProxiesByRegex(params, region.regex),
       icon: region.icon,
-      hidden: false,
+      hidden: true,
     })).filter(item => item.proxies.length > 0);
 
   let otherManualProxyGroup = null;
