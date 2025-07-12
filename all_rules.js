@@ -424,7 +424,7 @@ function getTestUrlForGroup(groupName) {
   case "Cursor":
     return "https://api2.cursor.sh/";
   case "Augment":
-    return "https://augment.caicode.org/";
+    return "https://www.augmentcode.com/";
   default:
     return "http://www.gstatic.com/generate_204";
   }
