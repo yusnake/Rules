@@ -644,7 +644,7 @@ function overwriteProxyGroups(params) {
         ...countryRegions
           .filter(region => availableCountryCodes.has(region.code))
           .flatMap(region => [
-            `${codeToFlag(region.code)} ${region.code} - 自动选择 - ${groupName}`
+            `AUTO - ${codeToFlag(region.code)} ${region.code} ${groupName}`
             //`${codeToFlag(region.code)} ${region.code} - 手动选择`,
           ]),
         //otherAutoProxyGroup ? `${otherAutoProxyGroup.name} - ${groupName}` : null,
