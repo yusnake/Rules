@@ -489,6 +489,12 @@ function codeToFlag (cc) {
 //重写策略组
 function overwriteProxyGroups(params) {
   const allProxies = params["proxies"].map((e) => e.name);
+	
+  const keywordsToFilter = ["流量", "订阅", "到期", "重置", "过滤", "官网", "建议"];
+  const filterRegex = new RegExp(keywordsToFilter.join('|'));	
+ 
+  const allProxiesfilter = (allProxies ?? [])
+  .filter(proxyName => !filterRegex.test(proxyName));
 
   const availableCountryCodes = new Set();
   const otherProxies = [];
@@ -519,7 +525,7 @@ function overwriteProxyGroups(params) {
   const autoProxyGroupRegexs = countryRegions
     .filter(region => availableCountryCodes.has(region.code))
     .map(region => ({
-      name: `${codeToFlag(region.code)} ${region.code} - 自动选择`,
+      name: ` AUTO - ${codeToFlag(region.code)} ${region.code}`,
       regex: region.regex,
     }));
 
@@ -591,7 +597,7 @@ function overwriteProxyGroups(params) {
       name: "自动选择",
       type: "select",
       icon: "https://fastly.jsdelivr.net/gh/clash-verge-rev/clash-verge-rev.github.io@main/docs/assets/icons/speed.svg",
-      proxies: ["ALL - 自动选择", ...autoProxyGroups
+      proxies: ["ALL - AUTO", ...autoProxyGroups
         .filter(group => !app_groups.includes(group.name))
         .map(group => group.name), otherAutoProxyGroup ? otherAutoProxyGroup.name : null].filter(Boolean),
     },
@@ -605,7 +611,7 @@ function overwriteProxyGroups(params) {
       "max-failed-times": 3,
       strategy: "consistent-hashing",
       lazy: true,
-      proxies: allProxies.length > 0 ? allProxies : ["DIRECT"],
+      proxies: allProxiesfilter.length > 0 ? allProxiesfilter : ["DIRECT"],
       hidden: true,
     },
 
@@ -618,17 +624,17 @@ function overwriteProxyGroups(params) {
       "max-failed-times": 3,
       strategy: "round-robin",
       lazy: true,
-      proxies: allProxies.length > 0 ? allProxies : ["DIRECT"],
+      proxies: allProxiesfilter.length > 0 ? allProxiesfilter : ["DIRECT"],
       hidden: true,
     },
 
     {
-      name: "ALL - 自动选择",
+      name: "ALL - AUTO",
       type: "url-test",
       url: "http://www.gstatic.com/generate_204",
       interval: 300,
       tolerance: 50,
-      proxies: allProxies.length > 0 ? allProxies : ["DIRECT"],
+      proxies: allProxiesfilter.length > 0 ? allProxiesfilter : ["DIRECT"],
       hidden: true,
     },
 
@@ -640,15 +646,15 @@ function overwriteProxyGroups(params) {
       proxies: [
         proxyName,
         "DIRECT",
-        `ALL - 自动选择 - ${groupName}`, 
+        `ALL - AUTO - ${groupName}`, 
         ...countryRegions
           .filter(region => availableCountryCodes.has(region.code))
           .flatMap(region => [
-            `AUTO - ${codeToFlag(region.code)} ${region.code} ${groupName}`
+            ` AUTO - ${codeToFlag(region.code)} ${region.code} - ${groupName}`
             //`${codeToFlag(region.code)} ${region.code} - 手动选择`,
           ]),
         //otherAutoProxyGroup ? `${otherAutoProxyGroup.name} - ${groupName}` : null,
-	...(allProxies ?? []),
+	...(allProxiesfilter ?? []),
       ].filter(Boolean),
     })),
 
@@ -672,12 +678,12 @@ function overwriteProxyGroups(params) {
   const websiteSpecificAutoGroups = app_groups.flatMap(groupName => {
     return [
       {
-        name: `ALL - 自动选择 - ${groupName}`,
+        name: `ALL - AUTO - ${groupName}`,
         type: "url-test",
         url: getTestUrlForGroup(groupName), 
         interval: 300,
         tolerance: 50,
-        proxies: allProxies.length > 0 ? allProxies : ["DIRECT"],
+        proxies: allProxiesfilter.length > 0 ? allProxiesfilter : ["DIRECT"],
         hidden: true,
       },
       ...autoProxyGroupRegexs.map(item => ({
