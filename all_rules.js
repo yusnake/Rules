@@ -648,6 +648,7 @@ function overwriteProxyGroups(params) {
             `${codeToFlag(region.code)} ${region.code} - 手动选择`,
           ]),
         //otherAutoProxyGroup ? `${otherAutoProxyGroup.name} - ${groupName}` : null,
+	allProxies.length > 0 ? allProxies : null,
       ].filter(Boolean),
     })),
 
