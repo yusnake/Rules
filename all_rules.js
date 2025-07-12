@@ -677,7 +677,7 @@ function overwriteProxyGroups(params) {
         interval: 300,
         tolerance: 50,
         proxies: allProxies.length > 0 ? allProxies : ["DIRECT"],
-        hidden: true,
+        hidden: false,
       },
       ...autoProxyGroupRegexs.map(item => ({
         name: `${item.name} - ${groupName}`,
@@ -686,7 +686,7 @@ function overwriteProxyGroups(params) {
         interval: 300,
         tolerance: 50,
         proxies: getProxiesByRegex(params, item.regex),
-        hidden: true,
+        hidden: false,
       })).filter(item => item.proxies.length > 0),
       ...(otherAutoProxyGroup ? [{
         name: `${otherAutoProxyGroup.name} - ${groupName}`,
@@ -695,7 +695,7 @@ function overwriteProxyGroups(params) {
         interval: 300,
         tolerance: 50,
         proxies: otherProxies,
-        hidden: true,
+        hidden: false,
       }] : []),
     ];
   });
