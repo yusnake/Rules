@@ -87,7 +87,7 @@ function main(config) {
 
   // 规则组
   const customRules = [
-    //"DOMAIN-SUFFIX,linux.do,代理模式",
+    "DOMAIN-SUFFIX,linux.do,Linux Do",
     "DOMAIN-SUFFIX,cursor.com,Cursor",
     "DOMAIN-SUFFIX,cursor.sh,Cursor",
     "DOMAIN-SUFFIX,cursor-cdn.com,Cursor",
@@ -567,7 +567,7 @@ function overwriteProxyGroups(params) {
       hidden: true,
     };
   }
-  const app_groups = ["Telegram",  "YouTube",  "ChatGPT",  "Claude",  "Google",  "X.com", "Github", "Microsoft",  "OneDrive",  "Apple",  "Cursor",  "Augment",];
+  const app_groups = ["Telegram",  "YouTube",  "ChatGPT",  "Claude",  "Google",  "X.com", "Github", "Linux Do", "Microsoft",  "OneDrive",  "Apple",  "Cursor",  "Augment",];
   
   const proxyName = "Proxy";
 
