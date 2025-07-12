@@ -645,7 +645,7 @@ function overwriteProxyGroups(params) {
           .filter(region => availableCountryCodes.has(region.code))
           .flatMap(region => [
             `${codeToFlag(region.code)} ${region.code} - 自动选择 - ${groupName}`, 
-            `${codeToFlag(region.code)} ${region.code} - 手动选择`,
+            //`${codeToFlag(region.code)} ${region.code} - 手动选择`,
           ]),
         //otherAutoProxyGroup ? `${otherAutoProxyGroup.name} - ${groupName}` : null,
 	allProxies.length > 0 ? allProxies : null,
@@ -678,7 +678,7 @@ function overwriteProxyGroups(params) {
         interval: 300,
         tolerance: 50,
         proxies: allProxies.length > 0 ? allProxies : ["DIRECT"],
-        hidden: false,
+        hidden: true,
       },
       ...autoProxyGroupRegexs.map(item => ({
         name: `${item.name} - ${groupName}`,
@@ -687,7 +687,7 @@ function overwriteProxyGroups(params) {
         interval: 300,
         tolerance: 50,
         proxies: getProxiesByRegex(params, item.regex),
-        hidden: false,
+        hidden: true,
       })).filter(item => item.proxies.length > 0),
       ...(otherAutoProxyGroup ? [{
         name: `${otherAutoProxyGroup.name} - ${groupName}`,
@@ -696,7 +696,7 @@ function overwriteProxyGroups(params) {
         interval: 300,
         tolerance: 50,
         proxies: otherProxies,
-        hidden: false,
+        hidden: true,
       }] : []),
     ];
   });
