@@ -87,6 +87,7 @@ function main(config) {
 
   // 规则组
   const customRules = [
+    "DOMAIN-SUFFIX,ai-wave.org,Ai-Wave", 
     "DOMAIN-SUFFIX,linux.do,Linux Do",
     "DOMAIN-SUFFIX,cursor.com,Cursor",
     "DOMAIN-SUFFIX,cursor.sh,Cursor",
@@ -393,6 +394,8 @@ const countryRegions = [
 
 function getTestUrlForGroup(groupName) {
   switch (groupName) {
+  case "Ai-Wave":
+    return "https://api.ai-wave.org/";		  
   case "Steam":
     return "https://store.steampowered.com/";
   case "YouTube":
@@ -432,6 +435,8 @@ function getTestUrlForGroup(groupName) {
 
 function getIconForGroup(groupName) {
   switch (groupName) {
+  case "Ai-Wave":
+    return "https://fastly.jsdelivr.net/gh/yusnake/Rules@main/aiwave.png";
   case "Linux Do":
     return "https://linux.do/uploads/default/original/3X/9/d/9dd49731091ce8656e94433a26a3ef36062b3994.png";
   case "Steam":
@@ -573,7 +578,7 @@ function overwriteProxyGroups(params) {
       hidden: true,
     };
   }
-  const app_groups = ["Telegram",  "YouTube",  "ChatGPT",  "Claude",  "Google",  "X.com", "Github", "Linux Do", "Microsoft",  "OneDrive",  "Apple",  "Cursor",  "Augment",];
+  const app_groups = ["Telegram",  "YouTube",  "ChatGPT",  "Claude",  "Google",  "X.com", "Github", "Linux Do", "Ai-Wave", "Microsoft",  "OneDrive",  "Apple",  "Cursor",  "Augment",];
   
   const proxyName = "Proxy";
 
