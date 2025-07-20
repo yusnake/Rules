@@ -436,7 +436,7 @@ function getTestUrlForGroup(groupName) {
 function getIconForGroup(groupName) {
   switch (groupName) {
   case "Ai-Wave":
-    return "https://fastly.jsdelivr.net/gh/yusnake/Rules@main/aiwave.png";
+    return "https://fastly.jsdelivr.net/gh/yusnake/Rules@main/ai-wave.png";
   case "Linux Do":
     return "https://linux.do/uploads/default/original/3X/9/d/9dd49731091ce8656e94433a26a3ef36062b3994.png";
   case "Steam":
