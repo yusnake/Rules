@@ -707,7 +707,7 @@ function overwriteProxyGroups(params) {
         interval: 300,
         tolerance: 50,
         proxies: otherProxies,
-        hidden: true,
+        hidden: false,
       }] : []),
     ];
   });
