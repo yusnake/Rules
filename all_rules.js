@@ -95,6 +95,7 @@ function main(config) {
     "DOMAIN-SUFFIX,cursorapi.com,Cursor",
     "DOMAIN-SUFFIX,augmentcode.com,Augment",
     "DOMAIN-SUFFIX,augment.caicode.org,Augment",
+    "DOMAIN-SUFFIX,serviceapi.bitbrowser.cn,漏网之鱼",
     "IP-CIDR,183.230.113.152/32,REJECT",
     "IP-CIDR,1.12.12.12/32,Proxy"
   ];
@@ -117,7 +118,6 @@ function main(config) {
 		"GEOIP,CN,DIRECT,no-resolve",
 		"GEOIP,LAN,DIRECT,no-resolve",
 		"GEOSITE,geolocation-cn,DIRECT",
-	        "RULE-SET,serviceapi.bitbrowser.cn,漏网之鱼",
 		"RULE-SET,direct,DIRECT",
 		"RULE-SET,cncidr,DIRECT",
 		"RULE-SET,private,DIRECT",
@@ -740,6 +740,7 @@ function getManualProxiesByRegex(params, regex) {
 	? matchedProxies 
 	: ["DIRECT", "手动选择", proxyName];
 }
+
 
 
 
