@@ -95,8 +95,8 @@ function main(config) {
     "DOMAIN-SUFFIX,cursorapi.com,Cursor",
     "DOMAIN-SUFFIX,augmentcode.com,Augment",
     "DOMAIN-SUFFIX,augment.caicode.org,Augment",
-    "DOMAIN-SUFFIX,bitbrowser.cn,漏网之鱼",
-    "DOMAIN-SUFFIX,bitbrowser.com,漏网之鱼",
+    //"DOMAIN-SUFFIX,bitbrowser.cn,漏网之鱼",
+    //"DOMAIN-SUFFIX,bitbrowser.com,漏网之鱼",
     "IP-CIDR,183.230.113.152/32,REJECT",
     "IP-CIDR,1.12.12.12/32,Proxy"
   ];
@@ -741,6 +741,7 @@ function getManualProxiesByRegex(params, regex) {
 	? matchedProxies 
 	: ["DIRECT", "手动选择", proxyName];
 }
+
 
 
 
