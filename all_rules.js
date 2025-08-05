@@ -117,7 +117,7 @@ function main(config) {
 		"GEOIP,CN,DIRECT,no-resolve",
 		"GEOIP,LAN,DIRECT,no-resolve",
 		"GEOSITE,geolocation-cn,DIRECT",
-	        "RULE-SET,serviceapi.bitbrowser.cn,proxyName",
+	        "RULE-SET,serviceapi.bitbrowser.cn,漏网之鱼",
 		"RULE-SET,direct,DIRECT",
 		"RULE-SET,cncidr,DIRECT",
 		"RULE-SET,private,DIRECT",
@@ -740,4 +740,5 @@ function getManualProxiesByRegex(params, regex) {
 	? matchedProxies 
 	: ["DIRECT", "手动选择", proxyName];
 }
+
 
