@@ -87,7 +87,7 @@ function main(config) {
 
   // 规则组
   const customRules = [
-    "DOMAIN-SUFFIX,ai-wave.org,Ai-Wave", 
+    "DOMAIN-SUFFIX,api.ai-wave.org,Ai-Wave", 
     "DOMAIN-SUFFIX,linux.do,Linux Do",
     "DOMAIN-SUFFIX,cursor.com,Cursor",
     "DOMAIN-SUFFIX,cursor.sh,Cursor",
@@ -741,6 +741,7 @@ function getManualProxiesByRegex(params, regex) {
 	? matchedProxies 
 	: ["DIRECT", "手动选择", proxyName];
 }
+
 
 
 
